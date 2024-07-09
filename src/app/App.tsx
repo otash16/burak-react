@@ -4,9 +4,9 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { Link, Route, Switch } from "react-router-dom";
 import { HomePage } from "./screens/homePage";
 import { ProductsPage } from "./screens/productsPage";
-import { OrdersPage } from "./screens/ordersPage";
-import { UserPage } from "./screens/userPage";
 import { HelpPage } from "./screens/helpPage";
+import { UsersPage } from "./screens/userPage";
+import { OrdersPage } from "./screens/ordersPage";
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
           <OrdersPage />
         </Route>
         <Route path="/member-page">
-          <UserPage />
+          <UsersPage />
         </Route>
         <Route path="/help">
           <HelpPage />

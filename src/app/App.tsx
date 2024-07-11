@@ -1,22 +1,24 @@
 import React from "react";
-import "../css/app.css";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { Link, Route, Switch, useLocation } from "react-router-dom";
-import { HomePage } from "./screens/homePage";
-import { ProductsPage } from "./screens/productsPage";
-import { HelpPage } from "./screens/helpPage";
-import { UsersPage } from "./screens/userPage";
-import { OrdersPage } from "./screens/ordersPage";
-import { HomeNavbar } from "./components/headers/HomeNavbar";
-import { OtherNavbar } from "./components/headers/OtherNavbar";
-import { Footer } from "./components/footer";
+import HomePage from "./screens/homePage";
+import ProductsPage from "./screens/productsPage";
+import OrdersPage from "./screens/ordersPage";
+import UserPage from "../app/screens/userPage";
+import HelpPage from "./screens/helpPage";
+import OtherNavbar from "./components/headers/OtherNavbar";
+import HomeNavbar from "./components/headers/HomeNavbar";
+import Footer from "./components/footer";
+import "../css/app.css";
+import "../css/navbar.css";
+import "../css/footer.css";
 
 function App() {
   const location = useLocation();
-  console.log("location: ",location);
+  // console.log("location:", location);
   return (
     <>
-      {location.pathname === "/" ? <HomeNavbar/> : <OtherNavbar/>}
+      {location.pathname === "/" ? <HomeNavbar /> : <OtherNavbar />}
       <Switch>
         <Route path="/products">
           <ProductsPage />
@@ -25,7 +27,7 @@ function App() {
           <OrdersPage />
         </Route>
         <Route path="/member-page">
-          <UsersPage />
+          <UserPage />
         </Route>
         <Route path="/help">
           <HelpPage />
@@ -34,7 +36,7 @@ function App() {
           <HomePage />
         </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </>
   );
 }

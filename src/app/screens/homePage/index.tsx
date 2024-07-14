@@ -1,18 +1,21 @@
 import React from "react";
-import Statistics from "./Statistics";
-import PopularDishes from "./PopularDishes";
-import NewDishes from "./NewDishes";
-import Advertisement from "./Advertisement";
-import ActiveUsers from "./ActiveUsers";
 import Events from "./Events";
+import ActiveUsers from "./ActiveUsers";
+import Advertisement from "./Advertisement";
+import NewDishes from "./NewDishes";
+import PopularDishes from "./PopularDishes";
+import Statistics from "./Statistics";
+import "../../../css/home.css";
 
 export default function HomePage() {
-    return <div className={"homepage"}>
-        <Statistics/>
-        <PopularDishes/>
-        <NewDishes/>
-        <Advertisement/>
-        <ActiveUsers/>
-        <Events/>
-    </div>;
-  };
+  return (
+    <div className={"homepage"}>
+      <Statistics />
+      <PopularDishes />
+      <NewDishes />
+      <Advertisement />
+      <ActiveUsers />
+      <Events />
+    </div>
+  );
+}

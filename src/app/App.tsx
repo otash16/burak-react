@@ -31,8 +31,8 @@ function App() {
           <UserPage />
         </Route>
         <Route path="/help">
-          <HelpPage />
-        </Route>
+          <HelpPage/>
+          </Route>
         <Route path="/">
           <HomePage />
         </Route>
@@ -40,6 +40,6 @@ function App() {
       <Footer />
     </>
   );
-}
+}   
 
 export default App;

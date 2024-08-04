@@ -5,76 +5,68 @@ import Advertisement from "./Advertisement";
 import NewDishes from "./NewDishes";
 import PopularDishes from "./PopularDishes";
 import Statistics from "./Statistics";
-import "../../../css/home.css";
-
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { createSelector } from "reselect";
-import { setPopularDishes } from "./slice";
-import { retrivePopularDishes } from "./selector";
+import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
 import { Product } from "../../../lib/data/types/product";
+import ProductService from "../../services/Product.service";
+import { ProductCollection } from "../../../lib/data/enums/product.enum";
+import "../../../css/home.css";
+import dotenv from "dotenv";
+import MemberService from "../../services/MemberService";
+import { Member } from "../../../lib/data/types/member";
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
   setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)),
+  setNewDishes: (data: Product[]) => dispatch(setNewDishes(data)),
+  setTopUsers: (data: Member[]) => dispatch(setTopUsers(data)),
 });
 
-const popularDishesRetriever = createSelector(
-  retrivePopularDishes,
-  (popularDishes) => ({ popularDishes })
-);
-
 export default function HomePage() {
-  const { setPopularDishes } = actionDispatch(useDispatch());
-  const { popularDishes } = useSelector(popularDishesRetriever);
+  const { setPopularDishes, setNewDishes, setTopUsers } = actionDispatch(
+    useDispatch()
+  );
+
   // Select: Store => Data
+  console.log(process.env.REACT_APP_API_URL);
 
   useEffect(() => {
-    // // Backend server data request => DATA
-    // const result = [
-    //   {
-    //     _id: "6682e4551e42deb51c02dbc5",
-    //     productStatus: "PROCESS",
-    //     productCollection: "DISH",
-    //     productName: "Steak",
-    //     productPrice: 1,
-    //     productLeftCount: 100,
-    //     productSize: "NORMAL",
-    //     productVolume: 1,
-    //     productDesc: "circle",
-    //     productImages: [
-    //       ["uploads/products/ef5d2477-2d6c-464f-81ec-922b1a85b40b.jpeg"],
-    //     ],
-    //     productViews: 2,
-    //     createdAt: "2024-07-01T17:16:05.813Z",
-    //     updatedAt: "2024-07-25T05:28:00.584Z",
-    //     __v: 0,
-    //   },
-    //   {
-    //     _id: "6686a80e68bb769c100e0212",
-    //     productStatus: "PROCESS",
-    //     productCollection: "DRINK",
-    //     productName: "cola",
-    //     productPrice: 1,
-    //     productLeftCount: 20,
-    //     productSize: "NORMAL",
-    //     productVolume: 1,
-    //     productDesc: "drink",
-    //     productImages: [
-    //       ["uploads/products/2efd8663-e36d-402b-b7e0-b6b502834be3.png"],
-    //     ],
-    //     productViews: 0,
-    //     createdAt: "2024-07-04T13:47:58.319Z",
-    //     updatedAt: "2024-07-04T13:47:58.319Z",
-    //     __v: 0,
-    //   },
-    // ];
-    // // slice: DATA => REDUX
-    // // @ts-ignore
-    // setPopularDishes(result);
-  }, []);
+    // FETCH DATA FROM BACKEND
+    const product = new ProductService();
+    const member = new MemberService();
 
-  // console.log("populatDishes:", popularDishes);
+    product
+      .getProducts({
+        page: 1,
+        limit: 4,
+        order: "productViews",
+        // productCollection: ProductCollection.DISH,
+      })
+      .then((data) => {
+        // console.log("data:", data);
+        setPopularDishes(data as unknown as Product[]);
+      })
+      .catch((err) => console.log(err));
+
+    product
+      .getProducts({
+        page: 1,
+        limit: 4,
+        order: "createdAt",
+        // productCollection: ProductCollection.DISH,
+      })
+      .then((data) =>
+        // console.log("data:", data);
+        setNewDishes(data as unknown as Product[])
+      )
+      .catch((err) => console.log(err));
+
+    member
+      .getTopUsers()
+      .then((data) => setTopUsers(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className={"homepage"}>

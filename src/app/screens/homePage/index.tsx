@@ -10,7 +10,7 @@ import { Dispatch } from "@reduxjs/toolkit";
 import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
 import { Product } from "../../../lib/data/types/product";
 import ProductService from "../../services/Product.service";
-import { ProductCollection } from "../../../lib/data/enums/product.enum";
+import { ProductCollection } from "../../../lib/enums/product.enum";
 import "../../../css/home.css";
 import dotenv from "dotenv";
 import MemberService from "../../services/MemberService";

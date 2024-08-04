@@ -1,16 +1,18 @@
-
-
-/** REACT APP STATE **/
-
 import { Member } from "./member";
 import { Product } from "./product";
 
-export interface AppRootState{
-    homepage: HomepageState;
+/** REACT APP STATE */
+export interface AppRootState {
+  homePage: HomePageState;
 }
 
-export interface HomepageState{
-    popularDishes: Product[];
-    newDishes: Product[];
-    topUsers: Member[];
+/** HOMEPAGE */
+export interface HomePageState {
+  popularDishes: Product[];
+  newDishes: Product[];
+  topUsers: Member[];
 }
+
+/** PRODUCTS PAGE */
+
+/** ORDERS PAGE */

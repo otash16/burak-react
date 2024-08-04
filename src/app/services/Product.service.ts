@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { serverApi } from "../../lib/config";
 import { Product, ProductInquery } from "../../lib/data/types/product";

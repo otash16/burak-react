@@ -31,15 +31,16 @@ function App() {
           <UserPage />
         </Route>
         <Route path="/help">
-          <HelpPage/>
-          </Route>
+          <HelpPage />
+        </Route>
         <Route path="/">
+          {/* <Test /> */}
           <HomePage />
         </Route>
       </Switch>
       <Footer />
     </>
   );
-}   
+}
 
 export default App;

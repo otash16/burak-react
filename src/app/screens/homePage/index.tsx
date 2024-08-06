@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
 import { Product } from "../../../lib/data/types/product";
-import ProductService from "../../services/Product.service";
+import ProductService from "../../services/ProductService"
 import { ProductCollection } from "../../../lib/enums/product.enum";
 import "../../../css/home.css";
 import dotenv from "dotenv";
@@ -79,3 +79,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+console.log(process.env.REACT_APP_API_URL);

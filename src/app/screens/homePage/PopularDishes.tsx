@@ -13,13 +13,13 @@ import dotenv from "dotenv";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { retrievePopularDishes } from "./selector";
+import { retrivePopularDishes } from "./selector";
 import { Product } from "../../../lib/data/types/product";
 import { serverApi } from "../../../lib/config";
 
 /** REDUX  SELECTOR */
 const popularDishesRetriever = createSelector(
-  retrievePopularDishes,
+  retrivePopularDishes,
   (popularDishes) => ({ popularDishes })
 );
 

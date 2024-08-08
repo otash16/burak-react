@@ -9,7 +9,7 @@ import Typography from "@mui/joy/Typography";
 import CardOverflow from "@mui/joy/CardOverflow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
@@ -26,7 +26,8 @@ const popularDishesRetriever = createSelector(
 export default function PopularDishes() {
   const { popularDishes } = useSelector(popularDishesRetriever);
 
-  // console.log("populardishes:", popularDishes);
+  console.log("popularDishesRetriever:", popularDishesRetriever);
+  console.log("populardishes:", popularDishes);
 
   return (
     <div className={"popular-dishes-frame"}>

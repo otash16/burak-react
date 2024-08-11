@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retriveTopUsers } from "./selector";
 import { serverApi } from "../../../lib/config";
-import { Member } from "../../../lib/data/types/member";
+import { Member } from "../../../lib/types/member";
 
 /** REDUX  SELECTOR */
 const topUsersRetriever = createSelector(retriveTopUsers, (topUsers) => ({

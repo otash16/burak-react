@@ -14,7 +14,7 @@ import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrivePopularDishes } from "./selector";
-import { Product } from "../../../lib/data/types/product";
+import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
 
 /** REDUX  SELECTOR */

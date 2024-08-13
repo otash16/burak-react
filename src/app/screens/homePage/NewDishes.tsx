@@ -11,7 +11,7 @@ import Divider from "../../components/divider";
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retriveNewDishes } from "./selector";
-import { Product } from "../../../lib/types/product";
+import { Product } from "../../../lib/data/types/product";
 import { serverApi } from "../../../lib/config";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
-import { CartItem } from "../../../lib/types/search";
+import { CartItem } from "../../../lib/data/types/search";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
 import { Logout } from "@mui/icons-material";
